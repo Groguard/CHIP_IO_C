@@ -15,12 +15,6 @@ Attach an LED to XIO-P2 with a resistor to run the blink example::
 
 # Examples
 
- gpio-42  (                    |usb0-vbus           ) out lo
- gpio-83  (                    |reset               ) out hi
- "LCD-D2",    "UART2-TX",    "U13_17",  98: Cant be used, system used pin
- gpio-194 (                    |usb0_id_det         ) in  hi IRQ
-
-
 **GPIO Setup**
 
     #include "chip_io_c.h"
