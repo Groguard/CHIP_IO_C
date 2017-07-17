@@ -75,6 +75,7 @@ To clean up the GPIO when done, do the following:
     cleanup("ALL");
     
 **PWM** 
+Hardware PWM requires a DTB Overlay loaded on the CHIP to allow the kernel to know there is a PWM device available to use. Works by defualt on CHIPPro
 
     //startPwm(channel, duty, polarity);
     
