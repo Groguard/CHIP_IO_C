@@ -1,4 +1,5 @@
 /*
+Copyright (c) 2017 Christopher Alessandro
 Copyright (c) 2016 Robert Wolterman
 Original BBIO Author Justin Cooper
 Modified for CHIP_IO Author Robert Wolterman
@@ -277,7 +278,7 @@ int digitalRead(char *channel)
     return value;
 }
 
-void clean_up(char *channel)
+void cleanup(char *channel)
 {
     int gpio;
 
@@ -293,3 +294,4 @@ void clean_up(char *channel)
         gpio_unexport(gpio);
     }
 }
+

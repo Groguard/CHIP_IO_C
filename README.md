@@ -6,7 +6,7 @@ Arduino Style GPIO control for C.H.I.P and C.H.I.P Pro
 # Installation and first build
 Attach an LED to XIO-P2 with a resistor to run the blink example::
 
-    sudo apt-get install git build-essential 
+    sudo apt-get install git build-essential -y
     git clone https://github.com/Groguard/CHIP_IO.git
     cd CHIP_IO/examples/
     arm-linux-gnueabihf-gcc -pthread blink.c ../chip_io_c.c ../source/event_gpio.c ../source/common.c -o blink -static
@@ -30,7 +30,7 @@ You can also refer to the bin based upon its alternate name:
 
 Debug can be enabled/disabled by the following command:
 
-    # Enable Debug
+    // Enable Debug
     toggle_debug();
 
 **GPIO Output**
@@ -50,7 +50,7 @@ Inputs work similarly to outputs.:
 
 Other options when setting up pins:
 
-    # Specify pull up/pull down settings on a pin
+    // Specify pull up/pull down settings on a pin
     pinMode("CSID0", INPUT_PULLUP);
     pinMode("CSID0", INPUT_PULLDOWN);
     
@@ -68,5 +68,23 @@ Polling inputs:
 
 To clean up the GPIO when done, do the following:
 
-    # Clean up a single pin (keeping everything else intact)
-    clean_up("XIO-P0");
+    // Clean up a single pin (keeping everything else intact)
+    cleanup("XIO-P0");
+    
+    // Clean up all 
+    cleanup("ALL");
+    
+**PWM** 
+
+    //startPwm(channel, duty, polarity);
+    
+    #inlcude "chip_io_c_pwm.h"
+    startPwm("PWM0", 50, 0);
+    //duty values are valid 0 (off) to 100 (on)
+    setPwmDutyCycle("PWM0", 20.5);
+    setPwmFrequency("PWM0", 50);
+    
+    // to Stop PWM
+    stopPwm("PWM0");
+    cleanupPwm("PWM0");
+    

@@ -36,8 +36,8 @@ SOFTWARE.
 #include <errno.h>
 #include <fcntl.h>
 #include <unistd.h>
-#include "c_pwm.h"
-#include "common.h"
+#include "../source/c_pwm.h"
+#include "../source/common.h"
 
 #define KEYLEN 7
 
@@ -98,6 +98,9 @@ int initialize_pwm(int *initialized, int gpio)
         }
         len = snprintf(str_gpio, sizeof(str_gpio), "%d", gpio); BUF2SMALL(str_gpio);
         ssize_t s = write(fd, str_gpio, len); e_no = errno;
+        if (DEBUG)
+            if(e_no)
+                printf(" ** initialize_pwm: error: %d\n", e_no);
         close(fd);
         
         if (s != len) {
