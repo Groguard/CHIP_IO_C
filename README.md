@@ -1,5 +1,5 @@
 # CHIP_IO Arduino Style for C
-A CHIP IO library for C: IO+PWM+SPWM+ADC+Utilities
+A CHIP IO library for C: IO+PWM
 
 Arduino Style GPIO control for C.H.I.P and C.H.I.P Pro
 
